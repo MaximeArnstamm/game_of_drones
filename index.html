@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>TODO</title>
+  <meta name="description" content="TODO">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/skeleton.css">
+  <link rel="stylesheet" href="assets/css/terminal.css">
+  <link rel="stylesheet" href="assets/css/jquery.terminal-0.9.3.css"/>
+  <link rel="stylesheet" href="assets/css/clock.css"/>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+        <div class="twelve columns">
+          <div id="clock" class="light">
+            <div class="display">
+              <div class="weekdays"></div>
+              <div class="ampm"></div>
+              <div class="digits"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="nine columns">
+        <div class="window mainwindow">
+          <nav class="control-window">
+            <a class="close">close</a>
+            <a class="minimize">minimize</a>
+            <a class="maximize">maximize</a>
+          </nav>
+          <h1 class="titleInside">1. $USER@initech: ~/ (bash)</h1>
+          <div class="term-container">
+            <div id="term_demo" class="terminal"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="three columns">
+        <div class="invwindow">
+          <h2>Inventaire</h2>
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+</div>
+</body>
+
+
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="assets/js/jquery.terminal-0.9.3.min.js"></script>
+<script>
+jQuery(function($, undefined) {
+    $('#term_demo').terminal(function(command, term) {
+      if (command === 'texte') {
+        term.echo("texte formatté \n a la ligne <br/> a la ligne html")
+      }
+      else if (command !== '') {
+        term.echo(command);
+      }
+    },
+  {
+    greetings: 'greetings\n',
+    name: 'js_demo',
+    height: 300,
+    width: 'auto' ,
+    prompt: '> ',
+    enabled: 'false'
+  });
+});
+</script>
+<script src="assets/js/clock.js"></script>
+
+</html>
